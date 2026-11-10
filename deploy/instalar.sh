@@ -17,8 +17,8 @@ DOMAIN="${1:-}"
 say() { printf "\n\033[1m› %s\033[0m\n" "$*"; }
 
 say "Paquetes base"
-if command -v dnf >/dev/null; then sudo dnf install -y -q git tar xz openssl >/dev/null
-elif command -v apt-get >/dev/null; then sudo apt-get update -qq && sudo apt-get install -y -qq git tar xz-utils openssl curl >/dev/null
+if command -v dnf >/dev/null; then sudo dnf install -y -q git tar xz openssl libatomic >/dev/null
+elif command -v apt-get >/dev/null; then sudo apt-get update -qq && sudo apt-get install -y -qq git tar xz-utils openssl curl libatomic1 >/dev/null
 fi
 
 # La compilación de Next.js necesita ~2 GB de RAM; en instancias pequeñas se agrega memoria de intercambio.
@@ -41,7 +41,7 @@ if ! node -v 2>/dev/null | grep -q '^v26\.'; then
   sudo tar -xJf "/tmp/$FILE" -C /usr/local --strip-components=1
   rm -f "/tmp/$FILE"
 fi
-echo "Node $(node -v)"
+node -v >/dev/null || { echo "✗ Node no arranca"; exit 1; }; echo "Node $(node -v)"
 
 if ! command -v caddy >/dev/null; then
   say "Instalando Caddy (proxy con HTTPS automático)"

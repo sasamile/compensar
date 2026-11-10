@@ -1,0 +1,1 @@
+export const FEEDBACK_KINDS_PUBLIC: Record<string, string> = { error: "Algo no funciona", mejora: "Sugerencia de mejora", duda: "No entendí algo", positivo: "Me gustó", requisito: "Falta un requisito" };

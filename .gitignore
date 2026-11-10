@@ -1,0 +1,15 @@
+# Dependencias y compilación
+node_modules/
+.next*/
+*.tsbuildinfo
+# Datos de ejecución (base de datos, archivos subidos, registros)
+data/
+storage/
+logs/
+# Secretos y archivos locales
+.env*
+*.pem
+.DS_Store
+rep.xlsx
+# Documentos fuente del cliente (no se publican en el repositorio)
+docs/fuentes/

@@ -1,0 +1,188 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Instructivo para probadores · Plataforma de Fomento Empresarial</title>
+<style>
+@page { size: A4; margin: 16mm 16mm 18mm; }
+:root { --ink:#09090b; --muted:#71717a; --line:#e4e4e7; --soft:#f4f4f5; --brand:#2563eb; --brand-soft:#eff6ff; --warn:#92400e; --warn-soft:#fffbeb; --ok:#065f46; --ok-soft:#ecfdf5; }
+* { box-sizing: border-box; }
+body { margin:0; font-family: -apple-system, "Segoe UI", Inter, Roboto, sans-serif; color:var(--ink); font-size:10.5pt; line-height:1.5; -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+h1 { font-size:22pt; line-height:1.15; margin:0 0 6px; letter-spacing:-.02em; }
+h2 { font-size:13.5pt; margin:22px 0 8px; padding-bottom:6px; border-bottom:1px solid var(--line); display:flex; gap:10px; align-items:center; break-after:avoid; }
+h2 .n { display:inline-grid; place-items:center; width:22px; height:22px; border-radius:6px; background:var(--ink); color:#fff; font-size:10pt; }
+h3 { font-size:11pt; margin:14px 0 4px; break-after:avoid; }
+p { margin:0 0 8px; }
+ol, ul { margin:0 0 8px; padding-left:20px; }
+li { margin:2px 0; }
+code, .mono { font-family: "SF Mono", Menlo, Consolas, monospace; font-size:9.5pt; background:var(--soft); border:1px solid var(--line); border-radius:4px; padding:0 4px; }
+b { font-weight:600; }
+.cover { border:1px solid var(--line); border-radius:12px; padding:20px 22px; margin-bottom:14px; }
+.eyebrow { font-size:9pt; color:var(--muted); text-transform:uppercase; letter-spacing:.08em; margin-bottom:6px; }
+.sub { color:var(--muted); font-size:11pt; }
+.grid { display:grid; grid-template-columns:1fr 1fr; gap:10px; }
+.box { border:1px solid var(--line); border-radius:10px; padding:10px 12px; break-inside:avoid; }
+.box .k { font-size:8.5pt; color:var(--muted); text-transform:uppercase; letter-spacing:.06em; }
+.box .v { font-size:11pt; font-weight:600; word-break:break-all; }
+.link { color:var(--brand); }
+.note { border-radius:10px; padding:9px 12px; margin:8px 0; break-inside:avoid; border:1px solid; }
+.note.info { background:var(--brand-soft); border-color:#bfdbfe; }
+.note.warn { background:var(--warn-soft); border-color:#fde68a; color:var(--warn); }
+.note.ok { background:var(--ok-soft); border-color:#a7f3d0; color:var(--ok); }
+table { width:100%; border-collapse:collapse; font-size:9.5pt; margin:6px 0 10px; break-inside:auto; }
+th { text-align:left; font-weight:600; color:var(--muted); font-size:8.5pt; text-transform:uppercase; letter-spacing:.05em; background:var(--soft); }
+th, td { padding:6px 8px; border-bottom:1px solid var(--line); vertical-align:top; }
+tr { break-inside:avoid; }
+.steps { counter-reset:s; list-style:none; padding:0; }
+.steps > li { counter-increment:s; position:relative; padding-left:30px; margin:6px 0; break-inside:avoid; }
+.steps > li::before { content:counter(s); position:absolute; left:0; top:0; width:20px; height:20px; border-radius:50%; border:1px solid var(--line); background:var(--soft); display:grid; place-items:center; font-size:9pt; font-weight:600; }
+.flow { border:1px solid var(--line); border-radius:10px; padding:10px 14px 4px; margin:10px 0; break-inside:avoid; }
+.flow h3 { margin-top:0; }
+.who { font-size:9pt; color:var(--muted); margin-bottom:4px; }
+.check { list-style:none; padding:0; }
+.check li::before { content:"☐ "; color:var(--muted); }
+.footer { margin-top:18px; padding-top:8px; border-top:1px solid var(--line); color:var(--muted); font-size:8.5pt; }
+.pb { break-before:page; }
+</style>
+</head>
+<body>
+
+<div class="cover">
+  <div class="eyebrow">Compensar · Agencia de Empleo y Fomento Empresarial</div>
+  <h1>Instructivo para probadores</h1>
+  <div class="sub">Plataforma de Fomento Empresarial · versión MVP para pruebas</div>
+</div>
+
+<p>Gracias por ayudarnos a probar la plataforma. Este documento explica cómo entrar, con qué usuarios, qué recorridos probar y cómo enviarnos tus comentarios. No necesitas instalar nada: solo un navegador (Chrome, Edge o Safari), en computador o celular.</p>
+
+<div class="grid">
+  <div class="box"><div class="k">Enlace de acceso</div><div class="v link">https://3c12-181-51-34-221.ngrok-free.app</div></div>
+  <div class="box"><div class="k">Contraseña de todos los usuarios de prueba</div><div class="v"><span class="mono">Demo2026!</span></div></div>
+</div>
+
+<div class="note warn"><b>Importante:</b> todos los datos son ficticios. No ingreses información real de empresas ni personas. Todos los probadores comparten la misma base de datos, así que puedes ver cambios hechos por otros.</div>
+
+<h2><span class="n">1</span>Cómo entrar</h2>
+<ol class="steps">
+  <li>Abre el enlace de acceso. La primera vez aparece una página en inglés del servicio de túnel (ngrok) que dice <i>«You are about to visit…»</i>. Haz clic en <b>Visit Site</b>. Es normal y solo sale una vez por navegador.</li>
+  <li>Verás la pantalla <b>Bienvenido/a</b>. Elige la pestaña según el usuario:
+    <ul>
+      <li><b>Funcionarios y aliados</b>: personal de Compensar, mentores y aliados.</li>
+      <li><b>Empresas</b>: representantes de las empresas beneficiarias.</li>
+    </ul></li>
+  <li>Escribe el correo de la tabla de la sección 2 y la contraseña <span class="mono">Demo2026!</span>. Pulsa <b>Ingresar</b>.</li>
+  <li><b>Verificación en dos pasos</b> (solo funcionarios y aliados): la primera vez la plataforma pide configurar una app autenticadora con un código QR. En este modo de prueba <b>el código de 6 dígitos aparece en la misma pantalla</b> (recuadro amarillo «MODO DEMO»): cópialo y continúa. No necesitas instalar ninguna app.</li>
+  <li>Para cambiar de usuario, abre el menú con tu nombre (abajo a la izquierda; en celular, en el menú ☰) y elige <b>Cerrar sesión</b>. Consejo: usa una ventana normal y otra de incógnito para tener dos usuarios abiertos a la vez (por ejemplo, el mentor y la empresa).</li>
+</ol>
+<div class="note info">También puedes probar <b>Ingresar con cuenta corporativa (SSO)</b>: abre un proveedor de identidad de prueba que simula el ingreso con la cuenta de Compensar.</div>
+
+<h2 class="pb"><span class="n">2</span>Usuarios de prueba</h2>
+<p>Cada usuario tiene un rol distinto y ve solo lo que su rol permite. La contraseña de todos es <span class="mono">Demo2026!</span>.</p>
+<table>
+  <thead><tr><th style="width:34%">Correo</th><th style="width:26%">Rol</th><th>Qué puede hacer</th></tr></thead>
+  <tbody>
+    <tr><td colspan="3" style="background:#fafafa;font-weight:600">Pestaña «Funcionarios y aliados»</td></tr>
+    <tr><td class="mono-cell"><code>admin@compensar.test</code></td><td>Administrador</td><td>Todo: configuración, usuarios, roles, analítica, integraciones.</td></tr>
+    <tr><td><code>aux@compensar.test</code></td><td>Auxiliar administrativo</td><td>Empresas, cargue masivo, validación de requisitos.</td></tr>
+    <tr><td><code>contenidos@compensar.test</code></td><td>Gestor de contenidos</td><td>Crear y publicar eventos y formularios.</td></tr>
+    <tr><td><code>cursos@compensar.test</code></td><td>Gestor de cursos</td><td>Inscripciones, asistencia, recordatorios y certificados.</td></tr>
+    <tr><td><code>gestor@compensar.test</code></td><td>Gestor de mentorías</td><td>Asignar mentores, rutas, remisiones, cierres y reportes.</td></tr>
+    <tr><td><code>evaluador@compensar.test</code></td><td>Evaluador</td><td>Consulta y evaluación (solo lectura en la mayoría de módulos).</td></tr>
+    <tr><td><code>mentor1@compensar.test</code></td><td>Mentor</td><td>Agenda, sesiones y seguimiento de su empresa asignada (La Espiga).</td></tr>
+    <tr><td><code>mentor2@compensar.test</code></td><td>Mentor sin asignaciones</td><td>Sirve para comprobar que no ve empresas ajenas.</td></tr>
+    <tr><td><code>coord@crecer.test</code></td><td>Coordinador de aliado</td><td>Recibe remisiones y las asigna a sus mentores.</td></tr>
+    <tr><td><code>mentor@crecer.test</code></td><td>Mentor de aliado</td><td>Programa y registra sesiones de servicios remitidos.</td></tr>
+    <tr><td><code>pagos@compensar.test</code></td><td>Aprobador de pagos</td><td>Revisa y aprueba el soporte de pagos a aliados.</td></tr>
+    <tr><td><code>auditor@compensar.test</code></td><td>Auditor</td><td>Consulta la bitácora de auditoría (no puede modificar nada).</td></tr>
+    <tr><td colspan="3" style="background:#fafafa;font-weight:600">Pestaña «Empresas»</td></tr>
+    <tr><td><code>empresa1@laespiga.test</code></td><td>Panadería La Espiga SAS</td><td>Empresa con historial: sesiones, ruta, diagnóstico e informe.</td></tr>
+    <tr><td><code>empresa2@textiles.test</code></td><td>Textiles del Norte Ltda</td><td>Empresa con diagnóstico pendiente por responder.</td></tr>
+    <tr><td><code>empresa3@tecnosoft.test</code></td><td>Tecnosoft Colombia SAS</td><td>Empresa para probar inscripciones y cupos.</td></tr>
+  </tbody>
+</table>
+
+<h2 class="pb"><span class="n">3</span>Recorridos sugeridos</h2>
+<p>No tienes que hacerlos todos. Elige los que correspondan a tu rol en el proyecto. Cada uno toma entre 5 y 15 minutos.</p>
+
+<div class="flow">
+  <h3>A. La experiencia de la empresa</h3>
+  <div class="who">Usuario: <code>empresa1@laespiga.test</code> (pestaña Empresas)</div>
+  <ol>
+    <li>Revisa el <b>Inicio</b>: próximas sesiones, avance y accesos rápidos.</li>
+    <li><b>Mi diagnóstico</b>: mira el resultado por dimensión y las recomendaciones.</li>
+    <li><b>Mi ruta</b>: avance de las etapas del acompañamiento.</li>
+    <li><b>Agenda y mentorías</b>: abre una sesión programada y pulsa <b>Aceptar sesión</b>. Queda registrado quién, cuándo y desde qué IP.</li>
+    <li><b>Oferta y eventos</b>: inscríbete a un evento publicado.</li>
+    <li><b>Mis documentos</b> y <b>Mi informe final</b>: descarga los PDF.</li>
+  </ol>
+</div>
+
+<div class="flow">
+  <h3>B. Publicar un evento y llenar el cupo</h3>
+  <div class="who">Usuarios: <code>contenidos@</code>, luego <code>empresa2@</code> y <code>empresa3@</code>, luego <code>cursos@</code></div>
+  <ol>
+    <li><code>contenidos@</code> → <b>Eventos y cursos</b> → crea un evento con <b>cupo 1</b> → <b>Publicar</b>. Abre la página pública del evento (con QR).</li>
+    <li>Con dos empresas, inscríbete al mismo evento: la segunda debe recibir «cupo lleno» y la opción de lista de espera.</li>
+    <li><code>cursos@</code> → abre el evento → registra asistencia, <b>Emitir certificados</b> y verifica el código del certificado.</li>
+  </ol>
+</div>
+
+<div class="flow">
+  <h3>C. Mentoría y aceptación de sesiones</h3>
+  <div class="who">Usuarios: <code>gestor@</code>, <code>mentor1@</code>, <code>empresa1@</code></div>
+  <ol>
+    <li><code>gestor@</code> → <b>Empresas</b> → marca una empresa → <b>Asignar / reasignar mentor</b>. En la ficha de la empresa asigna también una ruta y un servicio.</li>
+    <li><code>mentor1@</code> → <b>Agenda y mentorías</b> → programa una sesión, ábrela, llena el seguimiento (temas, compromisos, horas) y pulsa <b>Registrar sesión realizada</b>.</li>
+    <li><code>empresa1@</code> → acepta la sesión desde su agenda.</li>
+    <li>Prueba de seguridad: con <code>mentor2@</code> abre <b>Empresas</b>; la lista debe salir vacía.</li>
+  </ol>
+</div>
+
+<div class="flow">
+  <h3>D. Remisión a un aliado y soporte de pagos</h3>
+  <div class="who">Usuarios: <code>gestor@</code>, <code>empresa1@</code>, <code>coord@crecer.test</code>, <code>mentor@crecer.test</code>, <code>pagos@</code></div>
+  <ol>
+    <li><code>gestor@</code> → <b>Remisiones a aliados</b> → remite La Espiga a un servicio de Fundación Crecer.</li>
+    <li><code>empresa1@</code> acepta la remisión; <code>coord@crecer.test</code> la asigna a su mentor.</li>
+    <li><code>mentor@crecer.test</code> programa y registra sesiones de ese servicio; la empresa acepta solo algunas.</li>
+    <li><code>pagos@</code> → <b>Soporte de pagos</b>: las sesiones sin aceptar aparecen resaltadas y no cuentan para el pago. Descarga el Excel y aprueba.</li>
+  </ol>
+</div>
+
+<div class="flow">
+  <h3>E. Configuración, analítica y auditoría</h3>
+  <div class="who">Usuarios: <code>admin@</code> y <code>auditor@</code></div>
+  <ol>
+    <li><code>admin@</code> → <b>Configuración</b>: programas y rutas, catálogo de servicios, marca (cambia el color y mira cómo cambia todo), plantillas y roles.</li>
+    <li><b>Analítica y tableros</b> y <b>Reportes</b>: filtra por programa o periodo y descarga reportes en Excel.</li>
+    <li><b>Seguimiento y alertas</b>: semáforo de empresas y tareas vencidas.</li>
+    <li><code>auditor@</code> → <b>Auditoría</b>: busca los cambios que hiciste; cada uno muestra usuario, fecha, IP y el antes y después.</li>
+  </ol>
+</div>
+
+<h2><span class="n">4</span>Cómo enviarnos tus comentarios</h2>
+<p>Lo más útil para nosotros es que dejes el comentario <b>en la misma pantalla donde lo notaste</b>: la plataforma guarda automáticamente en qué página estabas.</p>
+<ol class="steps">
+  <li>Arriba a la derecha de cualquier pantalla pulsa <b>Comentarios</b> (icono de globo con un +).</li>
+  <li>Elige el tipo: <i>Algo no funciona</i>, <i>Sugerencia de mejora</i>, <i>No entendí algo</i>, <i>Me gustó</i> o <i>Falta un requisito</i>.</li>
+  <li>Describe qué hiciste, qué esperabas y qué pasó. Si quieres, califica de 1 a 5 qué tan fácil fue la pantalla.</li>
+  <li>Pulsa <b>Enviar comentario</b>. Puedes enviar tantos comentarios como quieras.</li>
+</ol>
+<div class="note ok">Un buen comentario de error: <i>«En Agenda, al aceptar una sesión desde el celular, el botón no responde. Esperaba que quedara aceptada.»</i></div>
+
+<h2><span class="n">5</span>Preguntas frecuentes</h2>
+<table>
+  <thead><tr><th style="width:38%">Situación</th><th>Qué hacer</th></tr></thead>
+  <tbody>
+    <tr><td>El enlace no carga o dice «offline» / «ERR_NGROK»</td><td>La plataforma está temporalmente apagada. Avísanos y la reactivamos; el enlace puede cambiar y te enviaremos el nuevo.</td></tr>
+    <tr><td>Sale una página en inglés de ngrok</td><td>Pulsa <b>Visit Site</b>. Es el aviso del servicio de túnel, no un error.</td></tr>
+    <tr><td>Me pide un código de verificación</td><td>En modo de prueba el código aparece en la misma pantalla, en un recuadro amarillo.</td></tr>
+    <tr><td>«Correo o contraseña incorrectos»</td><td>Revisa la pestaña (Funcionarios o Empresas) y que la contraseña sea <span class="mono">Demo2026!</span> con mayúscula y signo de exclamación.</td></tr>
+    <tr><td>No veo un menú que otro probador sí ve</td><td>Es lo esperado: cada rol ve solo sus módulos. Cambia de usuario para ver otro rol.</td></tr>
+    <tr><td>Los datos cambiaron desde la última vez</td><td>Otros probadores también están usando la plataforma. Es una base de datos compartida.</td></tr>
+  </tbody>
+</table>
+
+<div class="footer">Plataforma de Fomento Empresarial · MVP de pruebas · Datos ficticios · Las integraciones con OnBase, Gestión de Clientes, Microsoft 365, correo, SMS y WhatsApp funcionan en modo simulado.</div>
+</body>
+</html>

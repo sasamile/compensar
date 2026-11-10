@@ -1,0 +1,101 @@
+@import "tailwindcss";
+
+/*
+ * Sistema visual estilo shadcn/ui: neutros zinc, un primario casi negro y el azul de la marca
+ * reservado para gráficas, enlaces y foco. Bordes finos en lugar de sombras.
+ */
+:root {
+  color-scheme: light;
+  --background: #ffffff;
+  --canvas: #fafafa;
+  --foreground: #09090b;
+  --card: #ffffff;
+  --muted: #f4f4f5;
+  --muted-foreground: #71717a;
+  --accent: #f4f4f5;
+  --border: #e4e4e7;
+  --input: #e4e4e7;
+  --primary: #18181b;
+  --primary-foreground: #fafafa;
+  --ring: #a1a1aa;
+  --destructive: #dc2626;
+  --brand: #2563eb;
+  --chart-1: #2563eb;
+  --chart-2: #60a5fa;
+  --chart-3: #1e3a8a;
+  --chart-4: #93c5fd;
+  --chart-5: #0d9488;
+  --radius: 0.625rem;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-canvas: var(--canvas);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-ring: var(--ring);
+  --color-destructive: var(--destructive);
+  /* `brand` e `ink` se mantienen como alias: decenas de vistas ya los usan */
+  --color-brand: var(--brand);
+  --color-brand-dark: #1d4ed8;
+  --color-ink: var(--foreground);
+  --font-sans: var(--font-geist), ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, "SF Mono", Menlo, monospace;
+}
+
+/* Las vistas usan la escala `slate`; se reasigna a los neutros zinc de shadcn para unificar el tono. */
+@theme {
+  --color-slate-50: #fafafa; --color-slate-100: #f4f4f5; --color-slate-200: #e4e4e7; --color-slate-300: #d4d4d8;
+  --color-slate-400: #a1a1aa; --color-slate-500: #71717a; --color-slate-600: #52525b; --color-slate-700: #3f3f46;
+  --color-slate-800: #27272a; --color-slate-900: #18181b; --color-slate-950: #09090b;
+}
+
+html { -webkit-text-size-adjust: 100%; }
+body { background: var(--canvas); color: var(--foreground); font-family: var(--font-sans); @apply antialiased; }
+::selection { background: color-mix(in srgb, var(--brand) 18%, transparent); }
+:focus-visible { outline: 2px solid var(--ring); outline-offset: 2px; }
+* { border-color: var(--border); }
+
+/* Controles: 36px de alto, borde fino, anillo de foco gris (shadcn) */
+.input { @apply h-9 w-full rounded-md border border-input bg-background px-3 py-1 text-sm text-foreground shadow-xs outline-none transition-[color,box-shadow] placeholder:text-muted-foreground focus-visible:border-ring focus-visible:ring-[3px] focus-visible:ring-ring/40 disabled:cursor-not-allowed disabled:opacity-50; }
+textarea.input { @apply h-auto min-h-16 py-2 leading-relaxed; }
+select.input { @apply pr-8; }
+input[type="file"].input { @apply h-auto py-1.5; }
+input[type="checkbox"], input[type="radio"] { accent-color: var(--primary); width: 1rem; height: 1rem; }
+
+.btn { @apply inline-flex h-9 shrink-0 cursor-pointer items-center justify-center gap-2 whitespace-nowrap rounded-md bg-primary px-4 text-sm font-medium text-primary-foreground shadow-xs transition-colors hover:bg-primary/90 disabled:pointer-events-none disabled:opacity-50 [&_svg]:size-4 [&_svg]:shrink-0; }
+.btn-ghost { @apply inline-flex h-9 shrink-0 cursor-pointer items-center justify-center gap-2 whitespace-nowrap rounded-md border border-input bg-background px-4 text-sm font-medium text-foreground shadow-xs transition-colors hover:bg-accent disabled:pointer-events-none disabled:opacity-50 [&_svg]:size-4 [&_svg]:shrink-0; }
+.btn-danger { @apply inline-flex h-9 shrink-0 cursor-pointer items-center justify-center gap-2 whitespace-nowrap rounded-md bg-destructive px-4 text-sm font-medium text-white shadow-xs transition-colors hover:bg-destructive/90 [&_svg]:size-4; }
+.btn-sm { @apply h-8 gap-1.5 rounded-md px-3 text-xs; }
+
+.label { @apply mb-1.5 block text-sm font-medium leading-none text-foreground; }
+.card { @apply rounded-xl border bg-card p-6 text-foreground shadow-xs; }
+.card-link { @apply transition-colors hover:bg-accent/60; }
+
+.th { @apply h-10 whitespace-nowrap border-b bg-muted/40 px-3 text-left align-middle text-xs font-medium text-muted-foreground; }
+.td { @apply border-b px-3 py-2.5 align-middle text-sm; }
+tbody tr:last-child > .td { border-bottom: 0; }
+tbody tr { @apply transition-colors hover:bg-muted/50; }
+
+a { @apply underline-offset-4; }
+details > summary::-webkit-details-marker { display: none; }
+
+.skeleton { @apply rounded-md bg-muted; animation: skel 1.6s ease-in-out infinite; }
+@keyframes skel { 50% { opacity: .5; } }
+@media (prefers-reduced-motion: reduce) { .skeleton { animation: none; } * { transition: none !important; } }
+
+/* Tooltip de las gráficas */
+.recharts-default-tooltip { border-radius: 0.5rem !important; border: 1px solid var(--border) !important; box-shadow: 0 4px 12px rgba(0,0,0,.06) !important; font-size: 12px; }
+.recharts-cartesian-axis-tick-value { font-size: 11px; fill: var(--muted-foreground); }
+
+@media print {
+  body { background: white; }
+  .card { box-shadow: none; }
+}
